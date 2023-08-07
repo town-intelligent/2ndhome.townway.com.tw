@@ -11,77 +11,21 @@
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="/static/css/style.css" >
     <link rel="stylesheet" href="/static/css/progress_bar.css">
-
     <script src="/static/js/config.js"></script>
     <script src="/static/js/localStorage.js"></script>
     <script src="/static/js/accounts.js"></script>
     <script type="module" src="/static/js/init.js"></script>
-
    <script type="text/javascript">
       let CLIENT_ID = "1080674192413-b1vnqslm4gif3p9ntaj4ifl4i572p0bn.apps.googleusercontent.com";
       let DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/people/v1/rest"];
     </script>
-
     <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};GoogleClientInit()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
-
     <script src="/static/js/GoogleOAuth.js"></script>
-    <script src="/static/js/FacebookOAuth.js"></script>
-
-  <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '597308661353623',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.12'
-    });
-    FB.AppEvents.logPageView();
-  };
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
-  $(function() {
-    $("#btnFbSignIn").click(function() {
-      FB.getLoginStatus(function(response) {
-        if (response.authResponse) {
-          FB.api('/me',{fields: 'id,name,email'}, function (response) {
-              var access_token = FB.getAuthResponse()['accessToken'];
-              // username, e-mail, token
-              eIDFacebookLogin(access_token, response);
-          });
-        //沒授權過應用程式
-        } else {
-          //呼叫FB.login()請求使用者授權
-          FB.login(function (response) {
-            if (response.authResponse) {
-              FB.api('/me',{fields: 'id,name,email'}, function (response) {
-                //這邊就可以判斷取得資料跟網站使用者資料是否一致
-              var access_token = FB.getAuthResponse()['accessToken'];
-
-              // username, e-mail, token
-              eIDFacebookLogin(access_token, response);
-              });
-            }
-          //FB.login()預設只會回傳基本的授權資料
-          //如果想取得額外的授權資料需要另外設定在scope參數裡面
-          //可以設定的授權資料可以參考官方文件
-          }, { scope: 'email' });
-        }
-      });
-    });
-  });
-  </script>
 
     <script>
     $(function () {
@@ -118,7 +62,7 @@
               } else if (group == "200" || group == "201") {
                 window.location.replace("/backend/admin_agent_dashboard.html");
               } else {
-                window.location.replace("/backend/cms_ab.html");
+                window.location.replace("/index.html");
               }
             }
           },
@@ -238,20 +182,15 @@
                   <small class="text-dark">透過 Google 登入</small>
                 </a>
               </div>
-              <div class="col-12 px-0  mt-3">
+              <!-- <div class="col-12 px-0  mt-3">
                 <a href="" class="btn btn-block btn-outline-secondary" id="btnFbSignIn">
                   <img class="mr-2" src="/static/imgs/fb-logo-s.png" alt="">
                   <small class="text-dark">透過 Facebook 登入</small>
                 </a>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
-          <!-- <div class="text-center mt-4">
-            <a class="btn btn-success" href="/tplanet_signup.html">
-              建立新帳號
-            </a>
-          </div> -->
         </div>
       </div>
     </div>
