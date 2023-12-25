@@ -129,9 +129,9 @@ export function append_plan_submit_data(page, form) {
   if (page == "cms_plan_info.html") {
     // Budget
     var input_budget = document.getElementById('budget').value;
-    var isNumber = /^[0-9]+(\.[0-9]+)?$/.test(input_budget);
-    if (!isNumber) {
-      alert('請輸入有效的數字 (整數或小數)');
+    var isInteger = /^[0-9]+$/.test(input_budget);
+    if (!isInteger) {
+      alert('請輸入有效的整數');
       return null;
       // 可以進一步處理，例如清空輸入欄位或為其添加一些視覺效果來指示錯誤
     }
