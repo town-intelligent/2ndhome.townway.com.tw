@@ -16,6 +16,11 @@ export function set_page_info_project_list() {
     /* Replace variable in str_project_block_in_project_page_page */
 
     // Project data
+    obj_project.name = obj_project.name || '';
+    obj_project.project_a = obj_project.project_a || '';
+    obj_project.project_b = obj_project.project_b || '';
+    obj_project.uuid = obj_project.uuid || '';
+
     var str_project_block_in_project_page_innetHTML = str_project_block_in_project_page.replaceAll("PROJECT_NAME", obj_project.name);
     str_project_block_in_project_page_innetHTML = str_project_block_in_project_page_innetHTML.replaceAll("PROJECT_A", obj_project.project_a);
     str_project_block_in_project_page_innetHTML = str_project_block_in_project_page_innetHTML.replaceAll("PROJECT_B", obj_project.project_b);
@@ -57,6 +62,8 @@ export function set_page_info_project_list() {
         }
       }
       str_project_block_in_project_page_innetHTML = str_project_block_in_project_page_innetHTML.replaceAll("SDGS_LIST", sdg);
+    } else {
+      str_project_block_in_project_page_innetHTML = str_project_block_in_project_page_innetHTML.replaceAll("SDGS_LIST", "");
     }
 
     // Replace variable and generate block

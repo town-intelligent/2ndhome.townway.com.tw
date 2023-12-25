@@ -260,7 +260,9 @@ export function cms_plan_add_parent_tasks(uuid_task) {
   // Update project
   var form_plan = new FormData();
   form_plan = append_plan_submit_data(page, form_plan);
-  plan_submit(form_plan, uuid);
+
+  // Submit
+  plan_submit(form, uuid);
 
   // GPS check
   var gps_flag = false;
