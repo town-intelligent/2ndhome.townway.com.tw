@@ -262,7 +262,7 @@ export function cms_plan_add_parent_tasks(uuid_task) {
   form_plan = append_plan_submit_data(page, form_plan);
 
   // Submit
-  plan_submit(form, uuid);
+  plan_submit(form_plan, uuid);
 
   // GPS check
   var gps_flag = false;
